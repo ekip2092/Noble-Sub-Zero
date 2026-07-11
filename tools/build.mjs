@@ -214,7 +214,7 @@ page('index.html', head(
 + `
 <section class="tile tile-hero">
   ${existsSync(join(OUT, 'assets', 'media', 'hero.mp4'))
-    ? `<video class="hero-bg" autoplay muted loop playsinline poster="assets/media/hero-poster.jpg">
+    ? `<video class="hero-bg" autoplay muted loop playsinline preload="auto" poster="assets/media/hero-poster.jpg">
     <source src="assets/media/hero.mp4" type="video/mp4">
   </video>
   <div class="hero-scrim"></div>`

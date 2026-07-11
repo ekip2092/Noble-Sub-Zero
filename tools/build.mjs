@@ -213,7 +213,12 @@ page('index.html', head(
 + nav('Noble Sub-Zero Service')
 + `
 <section class="tile tile-hero">
-  ${media('subzero-fridge-07-hamptons-coastal') ? `<img class="hero-bg" src="${media('subzero-fridge-07-hamptons-coastal')}" alt="">
+  ${existsSync(join(OUT, 'assets', 'media', 'hero.mp4'))
+    ? `<video class="hero-bg" autoplay muted loop playsinline poster="assets/media/hero-poster.jpg">
+    <source src="assets/media/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-scrim"></div>`
+    : media('subzero-fridge-07-hamptons-coastal') ? `<img class="hero-bg" src="${media('subzero-fridge-07-hamptons-coastal')}" alt="">
   <div class="hero-scrim"></div>` : ''}
   <div class="hero-content">
     <p class="eyebrow">Sub-Zero &amp; Wolf specialists &middot; Los Angeles &middot; ${BRAND.hours}</p>
@@ -291,6 +296,21 @@ ${pillarsTile('tile-parchment')}
     <li><div><h3>Restore, with genuine parts</h3><p>Factory components from the truck whenever possible. Most repairs finish the same visit, floors protected the whole time.</p></div></li>
     <li><div><h3>Guarantee, in writing</h3><p>Three years on parts and labor, documented. If it fails, we return. That is the whole policy.</p></div></li>
   </ol>
+</section>
+
+<section class="tile tile-navy">
+  <p class="eyebrow" style="color: var(--color-primary-on-dark);">The Noble promise</p>
+  <h2>The quote is the price.</h2>
+  <p class="lead muted">One written number before work begins. It does not move.</p>
+  <div class="prose">
+    <p>Here is how a Noble repair is priced. After the diagnosis, you get one written quote to fix the problem you called about, completely. Approve it, and that number is settled. Not a starting point. Not an estimate that grows in the parking lot.</p>
+    <p>If the job turns out harder than it looked from the outside, if it needs another part, another hour, or a second visit to finish right, the price stays where we set it. Hard jobs are ours to carry. That is what a quote means here.</p>
+    <p>And if we notice something unrelated while we work, we show you, explain it, and quote it on its own. Nothing lands on your bill that you did not ask us to fix.</p>
+    <p><strong>Every repair is backed by our ${BRAND.warrantyYears} year parts and labor guarantee, in writing.</strong></p>
+  </div>
+  <div class="ctas">
+    <a class="btn btn-primary btn-hero" href="tel:${BRAND.tel}">Call ${BRAND.phone}</a>
+  </div>
 </section>
 
 ${riskTile()}

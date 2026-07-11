@@ -25,6 +25,13 @@
 
   function init(root) {
     root = root || document;
+
+    if (reduced) {
+      root.querySelectorAll('video[autoplay]').forEach(function (v) {
+        v.removeAttribute('autoplay');
+        v.pause();
+      });
+    }
     var targets = root.querySelectorAll([
       '.tile h1', '.tile h2', '.tile .lead', '.tile .lead-airy', '.tile .eyebrow',
       '.ctas', '.utility-card', '.quote', '.step-list li', '.metric',

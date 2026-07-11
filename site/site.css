@@ -232,6 +232,8 @@ html { scroll-behavior: smooth; }
   height: 100%;
   object-fit: cover;
   z-index: 0;
+}
+img.tile-hero-drift, .tile-hero img.hero-bg {
   animation: nb-drift 26s ease-in-out infinite alternate;
 }
 @keyframes nb-drift {

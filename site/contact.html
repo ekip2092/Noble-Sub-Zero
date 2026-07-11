@@ -38,13 +38,33 @@
   </div>
 </nav>
 
-<section class="tile tile-white">
-  <p class="eyebrow muted">Contact</p>
-  <h1>One call, and it is handled.</h1>
-  <p class="lead muted">Speak with a person who knows these machines, not a call tree.</p>
-  <div class="ctas">
-    <a class="btn btn-primary btn-hero" href="tel:+17474444849">Call (747) 444-4849</a>
-    <a class="btn btn-ghost btn-hero" href="book.html">Book online</a>
+<section class="tile tile-hero">
+  <video class="hero-bg" autoplay muted loop playsinline preload="auto" poster="assets/media/contact-poster-mobile.jpg"></video>
+  <script>(function () {
+    var sc = document.currentScript;
+    var v = sc.previousElementSibling;
+    var mobile = window.matchMedia && window.matchMedia('(max-width: 833px)').matches;
+    var hasDesktop = false;
+    if (mobile && true) {
+      v.poster = 'assets/media/contact-poster-mobile.jpg';
+      v.src = 'assets/media/contact-mobile.mp4';
+    } else if (hasDesktop) {
+      v.src = 'assets/media/contact.mp4';
+    } else {
+      var scrim = sc.nextElementSibling;
+      v.remove();
+      if (scrim && scrim.className === 'hero-scrim') scrim.remove();
+    }
+  })();</script>
+  <div class="hero-scrim"></div>
+  <div class="hero-content">
+    <p class="eyebrow">Contact</p>
+    <h1>One call, and it is handled.</h1>
+    <p class="lead muted">Speak with a person who knows these machines, not a call tree.</p>
+    <div class="ctas">
+      <a class="btn btn-primary btn-hero" href="tel:+17474444849">Call (747) 444-4849</a>
+      <a class="btn btn-ghost btn-hero" href="book.html">Book online</a>
+    </div>
   </div>
 </section>
 

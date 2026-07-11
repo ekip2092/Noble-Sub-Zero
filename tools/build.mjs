@@ -25,18 +25,33 @@ const logoImg = (cls = 'brand-logo') => existsSync(join(OUT, 'assets', 'media', 
   ? `<img class="${cls}" src="assets/media/logo.png" alt="${BRAND.name}">`
   : '';
 
-// Responsive background video for a photo hero. Expects <base>.mp4,
-// <base>-mobile.mp4 and matching -poster jpgs in assets/media.
-const heroVideo = base => existsSync(join(OUT, 'assets', 'media', `${base}.mp4`))
-  ? `<video class="hero-bg" autoplay muted loop playsinline preload="auto" poster="assets/media/${base}-poster.jpg"></video>
+// Responsive background video for a photo hero. Expects <base>.mp4 and/or
+// <base>-mobile.mp4 with matching -poster jpgs in assets/media. When only
+// the mobile clip exists, desktop removes the video and keeps a plain hero.
+const heroVideo = base => {
+  const hasDesktop = existsSync(join(OUT, 'assets', 'media', `${base}.mp4`));
+  const hasMobile = existsSync(join(OUT, 'assets', 'media', `${base}-mobile.mp4`));
+  if (!hasDesktop && !hasMobile) return '';
+  const poster = hasDesktop ? `${base}-poster.jpg` : `${base}-poster-mobile.jpg`;
+  return `<video class="hero-bg" autoplay muted loop playsinline preload="auto" poster="assets/media/${poster}"></video>
   <script>(function () {
-    var v = document.currentScript.previousElementSibling;
+    var sc = document.currentScript;
+    var v = sc.previousElementSibling;
     var mobile = window.matchMedia && window.matchMedia('(max-width: 833px)').matches;
-    if (mobile) { v.poster = 'assets/media/${base}-poster-mobile.jpg'; }
-    v.src = mobile ? 'assets/media/${base}-mobile.mp4' : 'assets/media/${base}.mp4';
+    var hasDesktop = ${hasDesktop};
+    if (mobile && ${hasMobile}) {
+      v.poster = 'assets/media/${base}-poster-mobile.jpg';
+      v.src = 'assets/media/${base}-mobile.mp4';
+    } else if (hasDesktop) {
+      v.src = 'assets/media/${base}.mp4';
+    } else {
+      var scrim = sc.nextElementSibling;
+      v.remove();
+      if (scrim && scrim.className === 'hero-scrim') scrim.remove();
+    }
   })();</script>
-  <div class="hero-scrim"></div>`
-  : '';
+  <div class="hero-scrim"></div>`;
+};
 
 // Hero image per problem page.
 const PROB_IMG = {
@@ -716,13 +731,16 @@ page('contact.html', head(
   'contact.html')
 + nav('Contact')
 + `
-<section class="tile tile-white">
-  <p class="eyebrow muted">Contact</p>
-  <h1>One call, and it is handled.</h1>
-  <p class="lead muted">Speak with a person who knows these machines, not a call tree.</p>
-  <div class="ctas">
-    <a class="btn btn-primary btn-hero" href="tel:${BRAND.tel}">Call ${BRAND.phone}</a>
-    <a class="btn btn-ghost btn-hero" href="book.html">Book online</a>
+<section class="tile tile-hero">
+  ${heroVideo('contact')}
+  <div class="hero-content">
+    <p class="eyebrow">Contact</p>
+    <h1>One call, and it is handled.</h1>
+    <p class="lead muted">Speak with a person who knows these machines, not a call tree.</p>
+    <div class="ctas">
+      <a class="btn btn-primary btn-hero" href="tel:${BRAND.tel}">Call ${BRAND.phone}</a>
+      <a class="btn btn-ghost btn-hero" href="book.html">Book online</a>
+    </div>
   </div>
 </section>
 

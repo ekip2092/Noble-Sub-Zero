@@ -818,6 +818,7 @@ img.tile-hero-drift, .tile-hero img.hero-bg {
 @media (max-width: 833px) {
   .call-bar { display: flex; }
   body { padding-bottom: 72px; }
+  .tile-hero { min-height: 74vh; display: flex; align-items: center; justify-content: center; }
   .global-nav .links { display: none; }
   .sub-nav .links a:not(.current):not(.book) { display: none; }
   .card-grid, .card-grid.two { grid-template-columns: 1fr; }

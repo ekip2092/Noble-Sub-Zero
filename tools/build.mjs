@@ -214,9 +214,13 @@ page('index.html', head(
 + `
 <section class="tile tile-hero">
   ${existsSync(join(OUT, 'assets', 'media', 'hero.mp4'))
-    ? `<video class="hero-bg" autoplay muted loop playsinline preload="auto" poster="assets/media/hero-poster.jpg">
-    <source src="assets/media/hero.mp4" type="video/mp4">
-  </video>
+    ? `<video class="hero-bg" autoplay muted loop playsinline preload="auto" poster="assets/media/hero-poster.jpg"></video>
+  <script>(function () {
+    var v = document.currentScript.previousElementSibling;
+    var mobile = window.matchMedia && window.matchMedia('(max-width: 833px)').matches;
+    if (mobile) { v.poster = 'assets/media/hero-poster-mobile.jpg'; }
+    v.src = mobile ? 'assets/media/hero-mobile.mp4' : 'assets/media/hero.mp4';
+  })();</script>
   <div class="hero-scrim"></div>`
     : media('subzero-fridge-07-hamptons-coastal') ? `<img class="hero-bg" src="${media('subzero-fridge-07-hamptons-coastal')}" alt="">
   <div class="hero-scrim"></div>` : ''}

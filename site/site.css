@@ -844,8 +844,12 @@ img.tile-hero-drift, .tile-hero img.hero-bg {
   .tile-hero h1 br { display: none; }
   .tile-hero .lead { font-size: 16px; line-height: 1.45; }
   .tile-hero .hero-content::before { inset: -40px -30px; background: radial-gradient(ellipse 78% 62% at 50% 44%, rgba(248, 251, 255, 0.88) 0%, rgba(248, 251, 255, 0.6) 58%, rgba(248, 251, 255, 0) 80%); }
-  .global-nav .wordmark { font-size: 12px; gap: 7px; letter-spacing: 0; }
-  .nav-crest { height: 26px; }
+  .global-nav .inner { padding: 0 16px; gap: 10px; justify-content: space-between; }
+  .global-nav .wordmark { font-size: 11px; gap: 6px; letter-spacing: 0; }
+  .global-nav .call { padding: 7px 12px; font-size: 12px; }
+  .sub-nav .inner { padding: 0 16px; }
+  .call-bar { padding-left: 16px; padding-right: 16px; }
+  .nav-crest { height: 24px; }
   .nav-crest.sub { height: 28px; }
   .sub-nav .category { font-size: 16px; min-width: 0; }
   .sub-nav .links { flex-shrink: 0; }

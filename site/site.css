@@ -62,14 +62,15 @@ html { scroll-behavior: smooth; }
 }
 .global-nav .links a:hover { color: #fff; text-decoration: none; }
 .global-nav .call {
-  background: var(--color-ink);
+  background: linear-gradient(180deg, var(--sky) 0%, var(--color-primary) 100%);
   color: #fff;
   font: var(--type-button-utility);
   letter-spacing: var(--ls-button-utility);
-  border-radius: var(--rounded-sm);
-  padding: 8px 15px;
+  border-radius: var(--rounded-pill);
+  padding: 8px 16px;
   text-decoration: none;
   white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(10, 132, 255, 0.35);
 }
 .global-nav .call:hover { text-decoration: none; }
 .global-nav .call:active { transform: scale(0.95); }
@@ -800,12 +801,11 @@ img.tile-hero-drift, .tile-hero img.hero-bg {
   left: 0;
   right: 0;
   z-index: 110;
-  background: var(--frost-bg);
-  backdrop-filter: var(--frost-filter);
-  -webkit-backdrop-filter: var(--frost-filter);
+  background: rgba(245, 245, 247, 0.97);
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
   gap: 10px;
+  transform: translateZ(0);
 }
 .call-bar .btn { flex: 1; text-align: center; padding: 13px 10px; }
 

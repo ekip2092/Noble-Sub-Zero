@@ -25,6 +25,19 @@ const logoImg = (cls = 'brand-logo') => existsSync(join(OUT, 'assets', 'media', 
   ? `<img class="${cls}" src="assets/media/logo.png" alt="${BRAND.name}">`
   : '';
 
+// Responsive background video for a photo hero. Expects <base>.mp4,
+// <base>-mobile.mp4 and matching -poster jpgs in assets/media.
+const heroVideo = base => existsSync(join(OUT, 'assets', 'media', `${base}.mp4`))
+  ? `<video class="hero-bg" autoplay muted loop playsinline preload="auto" poster="assets/media/${base}-poster.jpg"></video>
+  <script>(function () {
+    var v = document.currentScript.previousElementSibling;
+    var mobile = window.matchMedia && window.matchMedia('(max-width: 833px)').matches;
+    if (mobile) { v.poster = 'assets/media/${base}-poster-mobile.jpg'; }
+    v.src = mobile ? 'assets/media/${base}-mobile.mp4' : 'assets/media/${base}.mp4';
+  })();</script>
+  <div class="hero-scrim"></div>`
+  : '';
+
 // Hero image per problem page.
 const PROB_IMG = {
   'sub-zero-not-cooling': ['subzero-fridge-01-pro48-glass-industrial', 'Sub-Zero PRO 48 refrigerator'],
@@ -214,17 +227,8 @@ page('index.html', head(
 + nav('Noble Sub-Zero Service')
 + `
 <section class="tile tile-hero">
-  ${existsSync(join(OUT, 'assets', 'media', 'hero.mp4'))
-    ? `<video class="hero-bg" autoplay muted loop playsinline preload="auto" poster="assets/media/hero-poster.jpg"></video>
-  <script>(function () {
-    var v = document.currentScript.previousElementSibling;
-    var mobile = window.matchMedia && window.matchMedia('(max-width: 833px)').matches;
-    if (mobile) { v.poster = 'assets/media/hero-poster-mobile.jpg'; }
-    v.src = mobile ? 'assets/media/hero-mobile.mp4' : 'assets/media/hero.mp4';
-  })();</script>
-  <div class="hero-scrim"></div>`
-    : media('subzero-fridge-07-hamptons-coastal') ? `<img class="hero-bg" src="${media('subzero-fridge-07-hamptons-coastal')}" alt="">
-  <div class="hero-scrim"></div>` : ''}
+  ${heroVideo('hero') || (media('subzero-fridge-07-hamptons-coastal') ? `<img class="hero-bg" src="${media('subzero-fridge-07-hamptons-coastal')}" alt="">
+  <div class="hero-scrim"></div>` : '')}
   <div class="hero-content">
     <p class="eyebrow">Sub-Zero &amp; Wolf specialists &middot; Los Angeles &middot; ${BRAND.hours}</p>
     <h1>Your Sub-Zero, <span class="accent-cold">cold again</span>.<br>Often the same day you call.</h1>
@@ -394,13 +398,16 @@ page('problems.html', head(
   'problems.html')
 + nav('Problems we fix')
 + `
-<section class="tile tile-white">
-  <p class="eyebrow muted">Problems we fix</p>
-  <h1>If it is Sub-Zero or Wolf,<br>we have repaired it.</h1>
-  <p class="lead muted">${BRAND.years} years of factory certified service means there is no failure we are meeting for the first time.</p>
-  <div class="ctas">
-    <a class="btn btn-primary btn-hero" href="tel:${BRAND.tel}">Call ${BRAND.phone}</a>
-    <a class="btn btn-ghost btn-hero" href="book.html">Book the ${BRAND.diagnostic} diagnostic</a>
+<section class="tile tile-hero">
+  ${heroVideo('problems')}
+  <div class="hero-content">
+    <p class="eyebrow">Problems we fix</p>
+    <h1>If it is Sub-Zero or Wolf,<br>we have repaired it.</h1>
+    <p class="lead muted">${BRAND.years} years of factory certified service means there is no failure we are meeting for the first time.</p>
+    <div class="ctas">
+      <a class="btn btn-primary btn-hero" href="tel:${BRAND.tel}">Call ${BRAND.phone}</a>
+      <a class="btn btn-ghost btn-hero" href="book.html">Book the ${BRAND.diagnostic} diagnostic</a>
+    </div>
   </div>
 </section>
 

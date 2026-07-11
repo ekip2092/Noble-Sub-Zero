@@ -232,17 +232,6 @@ page('index.html', head(
   </div>
 </section>
 
-<section class="tile tile-ice">
-  <h2>A warm Sub-Zero gets expensive by the hour.</h2>
-  <div class="card-grid">
-    <div class="utility-card"><h3>First, the food</h3><p>A loaded refrigerator holds hundreds of dollars of groceries, and a wine column can hold a whole lot more. Spoilage starts quietly, hours in.</p></div>
-    <div class="utility-card"><h3>Then, the machine</h3><p>A struggling unit runs flat out to compensate. That is exactly how a fixable fault turns into a compressor replacement, the most expensive repair there is.</p></div>
-    <div class="utility-card"><h3>Sometimes, the home</h3><p>Leaks travel under cabinetry before they surface. Hardwood and subfloors pay for every day a slow drip goes unfound.</p></div>
-  </div>
-  <p class="lead-airy muted" style="font-size: 17px; margin-top: 28px;">The cheapest moment to fix an appliance is the moment it first misbehaves. Call while it is still the small version of the problem.</p>
-  <div class="ctas"><a class="btn btn-primary" href="tel:${BRAND.tel}">Call ${BRAND.phone}</a></div>
-</section>
-
 <section class="tile tile-navy">
   <p class="eyebrow" style="color: var(--color-primary-on-dark);">The Noble Promise</p>
   <h2>The quote is the price.</h2>
@@ -256,6 +245,17 @@ page('index.html', head(
   <div class="ctas">
     <a class="btn btn-primary btn-hero" href="tel:${BRAND.tel}">Call ${BRAND.phone}</a>
   </div>
+</section>
+
+<section class="tile tile-ice">
+  <h2>A warm Sub-Zero gets expensive by the hour.</h2>
+  <div class="card-grid">
+    <div class="utility-card"><h3>First, the food</h3><p>A loaded refrigerator holds hundreds of dollars of groceries, and a wine column can hold a whole lot more. Spoilage starts quietly, hours in.</p></div>
+    <div class="utility-card"><h3>Then, the machine</h3><p>A struggling unit runs flat out to compensate. That is exactly how a fixable fault turns into a compressor replacement, the most expensive repair there is.</p></div>
+    <div class="utility-card"><h3>Sometimes, the home</h3><p>Leaks travel under cabinetry before they surface. Hardwood and subfloors pay for every day a slow drip goes unfound.</p></div>
+  </div>
+  <p class="lead-airy muted" style="font-size: 17px; margin-top: 28px;">The cheapest moment to fix an appliance is the moment it first misbehaves. Call while it is still the small version of the problem.</p>
+  <div class="ctas"><a class="btn btn-primary" href="tel:${BRAND.tel}">Call ${BRAND.phone}</a></div>
 </section>
 
 <section class="tile tile-parchment">

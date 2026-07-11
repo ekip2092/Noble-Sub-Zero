@@ -805,9 +805,16 @@ img.tile-hero-drift, .tile-hero img.hero-bg {
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
   gap: 10px;
-  transform: translateZ(0);
 }
-.call-bar .btn { flex: 1; text-align: center; padding: 13px 10px; }
+.call-bar .btn {
+  flex: 1;
+  text-align: center;
+  padding: 13px 10px;
+  animation: none !important;
+  transition: none;
+  box-shadow: none;
+}
+.call-bar .btn:hover { transform: none; filter: none; }
 
 /* ---------- Motion layer (classes applied by site.js) ----------
    Kept last so .reveal's transition list wins over component hover

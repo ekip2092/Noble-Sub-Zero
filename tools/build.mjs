@@ -78,7 +78,7 @@ ${extra}</head>
 const nav = (current = '') => `
 <nav class="global-nav">
   <div class="inner">
-    <a class="wordmark" href="index.html">Noble Sub-Zero Service</a>
+    <a class="wordmark" href="index.html"><img class="nav-crest" src="favicon.png" alt="">${BRAND.navName}</a>
     <div class="links">
       <a href="problems.html">Problems we fix</a>
       <a href="cities.html">Cities served</a>
@@ -91,7 +91,7 @@ const nav = (current = '') => `
 
 <nav class="sub-nav">
   <div class="inner">
-    <div class="category">${current || 'Noble'}</div>
+    <div class="category"><img class="nav-crest sub" src="favicon.png" alt="">${current || 'Noble'}</div>
     <div class="links">
       <a href="index.html">Overview</a>
       <a href="problems.html">Repairs</a>
@@ -226,7 +226,6 @@ page('index.html', head(
     : media('subzero-fridge-07-hamptons-coastal') ? `<img class="hero-bg" src="${media('subzero-fridge-07-hamptons-coastal')}" alt="">
   <div class="hero-scrim"></div>` : ''}
   <div class="hero-content">
-    ${logoImg('brand-logo hero-logo')}
     <p class="eyebrow">Sub-Zero &amp; Wolf specialists &middot; Los Angeles &middot; ${BRAND.hours}</p>
     <h1>Your Sub-Zero, <span class="accent-cold">cold again</span>.<br>Often the same day you call.</h1>
     <p class="lead muted">Factory trained specialists, ${BRAND.years} years deep in Sub-Zero and Wolf, and still glad to take the call. Genuine parts on the truck, a ${BRAND.warrantyYears} year guarantee in writing, and an ${BRAND.diagnostic} diagnostic that comes off your repair.</p>
@@ -239,6 +238,7 @@ page('index.html', head(
 </section>
 
 <section class="tile tile-navy">
+  ${existsSync(join(OUT, 'assets', 'media', 'crest-bright.png')) ? '<img class="promise-crest" src="assets/media/crest-bright.png" alt="Noble crest">' : ''}
   <p class="eyebrow" style="color: var(--color-primary-on-dark);">The Noble Promise</p>
   <h2>The quote is the price.</h2>
   <p class="lead muted">One written number before work begins. It does not move.</p>

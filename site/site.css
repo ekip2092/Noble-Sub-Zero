@@ -44,7 +44,13 @@ html { scroll-behavior: smooth; }
   letter-spacing: var(--ls-caption-strong);
   text-decoration: none;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 9px;
 }
+.nav-crest { height: 30px; width: auto; }
+.nav-crest.sub { height: 34px; }
+.sub-nav .category { display: flex; align-items: center; gap: 9px; }
 .global-nav .links { display: flex; gap: 24px; flex: 1; justify-content: center; }
 .global-nav .links a {
   color: rgba(255, 255, 255, 0.8);
@@ -636,14 +642,11 @@ img.tile-hero-drift, .tile-hero img.hero-bg {
 /* Brand logo */
 .brand-logo { display: block; margin: 0 auto 20px; height: 120px; width: auto; }
 .site-footer .brand-logo { height: 96px; margin: 0 auto 24px; }
-.hero-logo {
-  height: 150px;
-  filter:
-    drop-shadow(0 0 6px rgba(255, 255, 255, 0.95))
-    drop-shadow(0 0 22px rgba(255, 255, 255, 0.85));
-}
-@media (max-width: 833px) {
-  .hero-logo { height: 110px; }
+.promise-crest {
+  display: block;
+  height: 92px;
+  width: auto;
+  margin: 0 auto 18px;
 }
 
 /* ---------- Chips (nearby areas) ---------- */

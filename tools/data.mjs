@@ -4,6 +4,7 @@
 
 export const BRAND = {
   name: 'Noble Sub-Zero Service',
+  navName: 'Noble Sub-Zero and Wolf Service',
   short: 'Noble',
   phone: '(747) 444-4849',
   tel: '+17474444849',

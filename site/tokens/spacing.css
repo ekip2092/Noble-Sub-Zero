@@ -1,0 +1,35 @@
+/* Noble Sub-Zero Service — Spacing, radius, elevation tokens */
+:root {
+  /* Spacing (8px base) */
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 17px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-xxl: 48px;
+  --space-section: 80px;
+
+  /* Radius */
+  --rounded-none: 0px;
+  --rounded-xs: 5px;
+  --rounded-sm: 8px;
+  --rounded-md: 11px;
+  --rounded-lg: 18px;
+  --rounded-pill: 9999px;
+
+  /* Elevation — the ONLY shadow in the system (product imagery only) */
+  --shadow-product: rgba(0, 0, 0, 0.22) 3px 5px 30px 0;
+  --hairline-border: 1px solid rgba(0, 0, 0, 0.08); /* @kind other */
+
+  /* Frosted surfaces */
+  --frost-bg: rgba(245, 245, 247, 0.8);
+  --frost-filter: saturate(180%) blur(20px); /* @kind other */
+
+  /* Layout */
+  --container-text: 980px;
+  --container-grid: 1440px;
+
+  /* Micro-interaction */
+  --press-scale: 0.95; /* @kind other */
+}

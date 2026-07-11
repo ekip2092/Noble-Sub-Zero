@@ -1,0 +1,46 @@
+/* Noble Sub-Zero Service — Color tokens */
+:root {
+  /* Brand & accent */
+  --color-primary: #0066cc;          /* Action Blue — the single interactive color */
+  --color-primary-focus: #0071e3;    /* Focus ring only */
+  --color-primary-on-dark: #2997ff;  /* Sky Link Blue — links on dark tiles only */
+  --color-on-primary: #ffffff;
+
+  /* Wolf accent — co-equal with blue: blue = Sub-Zero, red = Wolf */
+  --color-wolf: #c8102e;             /* Wolf Red — Wolf-related CTAs & links */
+  --color-wolf-on-dark: #ff453a;     /* brighter red for links on dark tiles */
+  --color-on-wolf: #ffffff;
+
+  /* Surfaces */
+  --color-canvas: #ffffff;
+  --color-canvas-parchment: #f5f5f7;
+  --color-surface-pearl: #fafafc;
+  --color-surface-tile-1: #272729;
+  --color-surface-tile-2: #2a2a2c;
+  --color-surface-tile-3: #252527;
+  --color-surface-black: #000000;
+  --color-surface-chip-translucent: rgba(210, 210, 215, 0.64);
+
+  /* Text */
+  --color-ink: #1d1d1f;
+  --color-body: #1d1d1f;
+  --color-body-on-dark: #ffffff;
+  --color-body-muted: #cccccc;       /* secondary copy on dark tiles */
+  --color-ink-muted-80: #333333;
+  --color-ink-muted-48: #7a7a7a;     /* disabled, legal fine print */
+
+  /* Hairlines & borders */
+  --color-divider-soft: rgba(0, 0, 0, 0.04);
+  --color-hairline: #e0e0e0;
+  --color-hairline-alpha: rgba(0, 0, 0, 0.08);
+
+  /* Semantic aliases */
+  --text-body: var(--color-body);
+  --text-headline: var(--color-ink);
+  --text-muted: var(--color-ink-muted-48);
+  --surface-page: var(--color-canvas);
+  --surface-card: var(--color-canvas);
+  --surface-alt: var(--color-canvas-parchment);
+  --link-color: var(--color-primary);
+  --link-color-on-dark: var(--color-primary-on-dark);
+}

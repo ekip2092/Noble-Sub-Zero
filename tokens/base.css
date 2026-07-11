@@ -1,0 +1,11 @@
+/* Noble Sub-Zero Service — Base element styles */
+body {
+  margin: 0;
+  font: var(--type-body);
+  letter-spacing: var(--ls-body);
+  color: var(--text-body);
+  background: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--link-color); text-decoration: none; }
+a:hover { text-decoration: underline; color: var(--link-color); }

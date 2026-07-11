@@ -1,0 +1,6 @@
+/* Noble Sub-Zero Service — Webfonts
+   SF Pro Display / SF Pro Text are Apple-proprietary and not redistributable.
+   The stack leads with system-ui/-apple-system (resolves to real SF Pro on
+   Apple platforms). Inter is loaded as the closest open substitute for
+   non-Apple platforms. Weight ladder: 300 / 400 / 600 / 700 (500 is absent). */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');

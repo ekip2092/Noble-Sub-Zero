@@ -22,7 +22,8 @@ html { scroll-behavior: smooth; }
 
 /* ---------- Global nav (pure black, 44px) ---------- */
 .global-nav {
-  background: var(--color-surface-black);
+  background: radial-gradient(900px 200px at 50% -60%, rgba(10, 132, 255, 0.30), transparent 70%), linear-gradient(180deg, var(--navy-800) 0%, var(--navy-900) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   height: 44px;
   display: flex;
   align-items: center;
@@ -75,8 +76,7 @@ html { scroll-behavior: smooth; }
 
 /* ---------- Sub-nav (frosted, 52px) ---------- */
 .sub-nav {
-  position: sticky;
-  top: 44px;
+  position: static;
   z-index: 99;
   background: var(--frost-bg);
   backdrop-filter: var(--frost-filter);
@@ -273,6 +273,15 @@ img.tile-hero-drift, .tile-hero img.hero-bg {
   z-index: 2;
   max-width: 900px;
   margin: 0 auto;
+}
+/* Soft light plate melts the text zone into the video — no hard edges */
+.tile-hero .hero-content::before {
+  content: "";
+  position: absolute;
+  inset: -56px -90px;
+  z-index: -1;
+  background: radial-gradient(ellipse 62% 58% at 50% 46%, rgba(248, 251, 255, 0.85) 0%, rgba(248, 251, 255, 0.55) 55%, rgba(248, 251, 255, 0) 78%);
+  pointer-events: none;
 }
 /* White halo keeps ink type readable directly over the moving video */
 .tile-hero h1,
@@ -831,11 +840,14 @@ img.tile-hero-drift, .tile-hero img.hero-bg {
   .call-bar { display: flex; }
   body { padding-bottom: 72px; }
   .tile-hero { min-height: 74vh; display: flex; align-items: center; justify-content: center; padding-top: 72px; padding-bottom: 84px; }
-  .tile-hero .lead { font-size: 17px; line-height: 1.45; }
+  .tile-hero h1 { font-size: 30px; }
+  .tile-hero h1 br { display: none; }
+  .tile-hero .lead { font-size: 16px; line-height: 1.45; }
+  .tile-hero .hero-content::before { inset: -40px -30px; background: radial-gradient(ellipse 78% 62% at 50% 44%, rgba(248, 251, 255, 0.88) 0%, rgba(248, 251, 255, 0.6) 58%, rgba(248, 251, 255, 0) 80%); }
   .global-nav .wordmark { font-size: 12px; gap: 7px; letter-spacing: 0; }
   .nav-crest { height: 26px; }
   .nav-crest.sub { height: 28px; }
-  .sub-nav .category { font-size: 17px; min-width: 0; }
+  .sub-nav .category { font-size: 16px; min-width: 0; }
   .sub-nav .links { flex-shrink: 0; }
   .sub-nav .links a.book { padding: 7px 12px; font-size: 13px; white-space: nowrap; }
   .promise-crest { height: 72px; }

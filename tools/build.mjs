@@ -91,7 +91,7 @@ ${extra}</head>
 const nav = (current = '') => `
 <nav class="global-nav">
   <div class="inner">
-    <a class="wordmark" href="index.html"><img class="nav-crest" src="favicon.png" alt="">${BRAND.navName}</a>
+    <a class="wordmark" href="index.html"><img class="nav-crest" src="assets/media/crest-bright.png" alt="">${BRAND.navName}</a>
     <div class="links">
       <a href="problems.html">Problems we fix</a>
       <a href="cities.html">Cities served</a>
@@ -224,14 +224,14 @@ page('index.html', head(
   `${BRAND.name} | Sub-Zero & Wolf repair for Los Angeles' finest homes`,
   `The Sub-Zero and Wolf specialists Los Angeles' finest kitchens keep on speed dial. Factory-trained, white-glove, 3-year guarantee. ${BRAND.phone}.`,
   'index.html', ldHome)
-+ nav('Noble Sub-Zero Service')
++ nav('Noble')
 + `
 <section class="tile tile-hero">
   ${heroVideo('hero') || (media('subzero-fridge-07-hamptons-coastal') ? `<img class="hero-bg" src="${media('subzero-fridge-07-hamptons-coastal')}" alt="">
   <div class="hero-scrim"></div>` : '')}
   <div class="hero-content">
     <p class="eyebrow">Sub-Zero &amp; Wolf specialists &middot; Los Angeles &middot; ${BRAND.hours}</p>
-    <h1>Your Sub-Zero, <span class="accent-cold">cold again</span>.<br>Often the same day you call.</h1>
+    <h1>Your Sub-Zero, <span class="accent-cold">cold again</span>. <br>Often the same day you call.</h1>
     <p class="lead muted">Factory trained specialists, ${BRAND.years} years deep in Sub-Zero and Wolf, and still glad to take the call. Genuine parts on the truck, a ${BRAND.warrantyYears} year guarantee in writing, and an ${BRAND.diagnostic} diagnostic that comes off your repair.</p>
     <div class="ctas">
       <a class="btn btn-primary btn-hero" href="tel:${BRAND.tel}">Call ${BRAND.phone}</a>
@@ -402,7 +402,7 @@ page('problems.html', head(
   ${heroVideo('problems')}
   <div class="hero-content">
     <p class="eyebrow">Problems we fix</p>
-    <h1>If it is Sub-Zero or Wolf,<br>we have repaired it.</h1>
+    <h1>If it is Sub-Zero or Wolf, <br>we have repaired it.</h1>
     <p class="lead muted">${BRAND.years} years of factory certified service means there is no failure we are meeting for the first time.</p>
     <div class="ctas">
       <a class="btn btn-primary btn-hero" href="tel:${BRAND.tel}">Call ${BRAND.phone}</a>

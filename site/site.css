@@ -149,14 +149,28 @@ html { scroll-behavior: smooth; }
 .btn-wolf::after { background: radial-gradient(ellipse at 50% 0%, rgba(224, 36, 63, 0.5), transparent 70%); }
 .btn-primary:hover::after, .btn-wolf:hover::after { opacity: 0.95; }
 
-/* Gentle pulse on the hero call button */
-@keyframes nb-pulse {
-  0%, 100% { box-shadow: 0 6px 18px rgba(0, 102, 204, 0.28); }
-  50% { box-shadow: 0 10px 32px rgba(10, 132, 255, 0.48); }
+/* Slow breathing glow on every call button */
+@keyframes nb-breathe {
+  0%, 100% { filter: brightness(1); box-shadow: 0 6px 18px rgba(0, 102, 204, 0.28); }
+  50% { filter: brightness(1.22); box-shadow: 0 10px 32px rgba(10, 132, 255, 0.5); }
 }
-.btn-hero.btn-primary { animation: nb-pulse 3.2s ease-in-out infinite; }
+.btn[href^="tel:"],
+.global-nav .call {
+  animation: nb-breathe 3.4s ease-in-out infinite;
+}
+.btn-wolf[href^="tel:"],
+.btn-ghost-wolf[href^="tel:"] { animation-name: nb-breathe-wolf; }
+@keyframes nb-breathe-wolf {
+  0%, 100% { filter: brightness(1); box-shadow: 0 6px 18px rgba(200, 16, 46, 0.26); }
+  50% { filter: brightness(1.2); box-shadow: 0 10px 32px rgba(224, 36, 63, 0.48); }
+}
+.btn[href^="tel:"]:hover,
+.global-nav .call:hover {
+  animation: none;
+  filter: brightness(1.08);
+}
 @media (prefers-reduced-motion: reduce) {
-  .btn-hero.btn-primary { animation: none; }
+  .btn[href^="tel:"], .global-nav .call, .btn-wolf[href^="tel:"] { animation: none; }
   .btn:hover { transform: none; }
 }
 .btn:focus-visible { outline: 2px solid var(--color-primary-focus); outline-offset: 2px; }

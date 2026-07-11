@@ -67,6 +67,7 @@ const head = (title, desc, path, extra = '') => `<!DOCTYPE html>
 <title>${title}</title>
 <meta name="description" content="${desc}">
 <link rel="canonical" href="${BRAND.domain}/${path === 'index.html' ? '' : path.replace(/\.html$/, '')}">
+<link rel="icon" type="image/png" href="favicon.png">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="site.css">
 <script src="site.js" defer></script>
@@ -225,6 +226,7 @@ page('index.html', head(
     : media('subzero-fridge-07-hamptons-coastal') ? `<img class="hero-bg" src="${media('subzero-fridge-07-hamptons-coastal')}" alt="">
   <div class="hero-scrim"></div>` : ''}
   <div class="hero-content">
+    ${logoImg('brand-logo hero-logo')}
     <p class="eyebrow">Sub-Zero &amp; Wolf specialists &middot; Los Angeles &middot; ${BRAND.hours}</p>
     <h1>Your Sub-Zero, <span class="accent-cold">cold again</span>.<br>Often the same day you call.</h1>
     <p class="lead muted">Factory trained specialists, ${BRAND.years} years deep in Sub-Zero and Wolf, and still glad to take the call. Genuine parts on the truck, a ${BRAND.warrantyYears} year guarantee in writing, and an ${BRAND.diagnostic} diagnostic that comes off your repair.</p>

@@ -635,7 +635,16 @@ img.tile-hero-drift, .tile-hero img.hero-bg {
 
 /* Brand logo */
 .brand-logo { display: block; margin: 0 auto 20px; height: 120px; width: auto; }
-.site-footer .brand-logo { height: 84px; margin: 0 auto 24px; }
+.site-footer .brand-logo { height: 96px; margin: 0 auto 24px; }
+.hero-logo {
+  height: 150px;
+  filter:
+    drop-shadow(0 0 6px rgba(255, 255, 255, 0.95))
+    drop-shadow(0 0 22px rgba(255, 255, 255, 0.85));
+}
+@media (max-width: 833px) {
+  .hero-logo { height: 110px; }
+}
 
 /* ---------- Chips (nearby areas) ---------- */
 .chip-row {

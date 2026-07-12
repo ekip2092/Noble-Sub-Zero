@@ -124,7 +124,7 @@ const nav = (current = '') => `
       <a href="index.html">Overview</a>
       <a href="problems.html">Repairs</a>
       <a href="cities.html">Service area</a>
-      <a class="book" href="book.html">Book the ${BRAND.diagnostic} diagnostic</a>
+      <a class="book" href="tel:${BRAND.tel}">Call ${BRAND.phone}</a>
     </div>
   </div>
 </nav>
@@ -133,7 +133,6 @@ const nav = (current = '') => `
 const footer = () => `
 <div class="call-bar">
   <a class="btn btn-primary" href="tel:${BRAND.tel}">Call ${BRAND.phone}</a>
-  <a class="btn btn-ghost" href="book.html">Book online</a>
 </div>
 <footer class="site-footer">
   <div class="inner">
@@ -160,7 +159,6 @@ const footer = () => `
         <a href="cities.html">Cities served</a>
         <a href="problems.html">Problems we fix</a>
         <a href="contact.html">Contact</a>
-        <a href="book.html">Book service</a>
       </div>
       <div class="col">
         <h4>Concierge line</h4>
@@ -194,9 +192,8 @@ const ctaTile = (h = 'Your appliances, in noble hands.', sub = `One call, and it
   <p class="lead muted">${sub}</p>
   <div class="ctas">
     <a class="btn btn-primary btn-hero" href="tel:${BRAND.tel}">Call ${BRAND.phone}</a>
-    <a class="btn btn-ghost-dark btn-hero" href="book.html">Book the ${BRAND.diagnostic} diagnostic</a>
   </div>
-  <p class="lead-airy muted" style="font-size: 14px; margin-top: 18px;">Same day slots are limited and go to the first callers. The diagnostic is credited toward your repair, so it costs you nothing to find out.</p>
+  <p class="lead-airy muted" style="font-size: 14px; margin-top: 18px;">Same day slots are limited and go to the first callers. The ${BRAND.diagnostic} diagnostic is credited toward your repair, so it costs you nothing to find out.</p>
 </section>`;
 
 // Risk-reversal tile — removes every reason to hesitate before calling.
@@ -250,7 +247,6 @@ page('index.html', head(
     <p class="lead muted">Factory trained specialists, ${BRAND.years} years deep in Sub-Zero and Wolf, and still glad to take the call. Genuine parts on the truck, a ${BRAND.warrantyYears} year guarantee in writing, and an ${BRAND.diagnostic} diagnostic that comes off your repair.</p>
     <div class="ctas">
       <a class="btn btn-primary btn-hero" href="tel:${BRAND.tel}">Call ${BRAND.phone}</a>
-      <a class="btn btn-ghost btn-hero" href="book.html">Book the ${BRAND.diagnostic} diagnostic</a>
     </div>
     <p class="lead-airy muted" style="font-size: 14px; margin-top: 14px;">Warm refrigerator? Say so when you call. Those go first.</p>
   </div>
@@ -354,7 +350,18 @@ ${riskTile()}
   <h2>Five stars, earned the old fashioned way.</h2>
   <p class="lead-airy muted">We go the extra mile because we can't help it. Our clients notice, and their neighbors call.</p>
   <div class="quote-grid">
-    ${REVIEWS.map(([q, c]) => `<figure class="quote" style="margin:0"><p>&ldquo;${q}&rdquo;</p><cite>${c}</cite></figure>`).join('\n    ')}
+    ${REVIEWS.map(r => `<figure class="quote" style="margin:0">
+      <div class="review-head">
+        <div class="review-avatar">${r.name.charAt(0)}</div>
+        <div>
+          <div class="review-name">${r.name}</div>
+          <div class="review-meta">${r.area}</div>
+        </div>
+      </div>
+      <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>&ldquo;${r.q}&rdquo;</p>
+      <span class="review-tag">${r.service}</span>
+    </figure>`).join('\n    ')}
   </div>
 </section>
 
@@ -421,7 +428,6 @@ page('problems.html', head(
     <p class="lead muted">${BRAND.years} years of factory certified service means there is no failure we are meeting for the first time.</p>
     <div class="ctas">
       <a class="btn btn-primary btn-hero" href="tel:${BRAND.tel}">Call ${BRAND.phone}</a>
-      <a class="btn btn-ghost btn-hero" href="book.html">Book the ${BRAND.diagnostic} diagnostic</a>
     </div>
   </div>
 </section>
@@ -484,7 +490,6 @@ for (const p of PROBLEMS) {
   <p class="lead muted">${p.tagline}</p>
   <div class="ctas">
     <a class="btn ${btn} btn-hero" href="tel:${BRAND.tel}">Call ${BRAND.phone}</a>
-    <a class="btn btn-ghost btn-hero" href="book.html">Book the ${BRAND.diagnostic} diagnostic</a>
   </div>
   ${PROB_IMG[p.slug] ? mediaImg(PROB_IMG[p.slug][0], PROB_IMG[p.slug][1], 'city-hero', ' loading="lazy"') : ''}
 </section>
@@ -550,7 +555,6 @@ page('cities.html', head(
   <p class="lead muted">${CITIES.length} communities across greater Los Angeles, plus dedicated routes to Newport Beach and Santa Barbara.</p>
   <div class="ctas">
     <a class="btn btn-primary btn-hero" href="tel:${BRAND.tel}">Call ${BRAND.phone}</a>
-    <a class="btn btn-ghost btn-hero" href="book.html">Book service</a>
   </div>
 </section>
 
@@ -600,7 +604,6 @@ ${JSON.stringify({
   <p class="lead muted">Wolf ranges and ovens too. Factory trained, white glove, and already in the neighborhood. Same day priority when the refrigerator is warm, and a written ${BRAND.warrantyYears} year guarantee on every repair.</p>
   <div class="ctas">
     <a class="btn btn-primary btn-hero" href="tel:${BRAND.tel}">Call ${BRAND.phone}</a>
-    <a class="btn btn-ghost btn-hero" href="book.html">Book the ${BRAND.diagnostic} diagnostic</a>
   </div>
   ${cityImg(c.slug)
     ? `<img class="city-hero" src="${cityImg(c.slug)}" alt="${c.name}">`
@@ -739,7 +742,6 @@ page('contact.html', head(
     <p class="lead muted">Speak with a person who knows these machines, not a call tree.</p>
     <div class="ctas">
       <a class="btn btn-primary btn-hero" href="tel:${BRAND.tel}">Call ${BRAND.phone}</a>
-      <a class="btn btn-ghost btn-hero" href="book.html">Book online</a>
     </div>
   </div>
 </section>
@@ -768,66 +770,21 @@ page('contact.html', head(
   </div>
 </section>
 `
-+ ctaTile('Prefer to book online?', 'Two minutes, and your appointment is requested.')
++ ctaTile('One number does it all.', `${BRAND.phone}. A person answers, and your appointment is set before you hang up.`)
 + footer());
 
 // ---------------------------------------------------------------------------
-// Book
+// Book — booking removed; old URL forwards to contact.
 // ---------------------------------------------------------------------------
-page('book.html', head(
-  `Book the ${BRAND.diagnostic} diagnostic | ${BRAND.name}`,
-  `Book Sub-Zero or Wolf service with Noble: ${BRAND.diagnostic} diagnostic, credited toward your repair. Same-day priority for refrigeration emergencies.`,
-  'book.html')
-+ nav('Book service')
-+ `
-<section class="tile tile-white">
-  <p class="eyebrow muted">Book service</p>
-  <h1>The ${BRAND.diagnostic} diagnostic.</h1>
-  <p class="lead muted">Quoted up front. Credited in full toward your repair. The honest way to start.</p>
-  <div class="ctas">
-    <a class="btn btn-primary btn-hero" href="tel:${BRAND.tel}">Call ${BRAND.phone}</a>
-  </div>
-  <p class="lead-airy muted" style="font-size: 14px; margin-top: 14px;">A real person answers requests during open hours, usually within the hour. Warm refrigerators go first.</p>
-  ${mediaImg('subzero-wine-09-dinner-party', 'Dinner party around Sub-Zero wine storage', 'city-hero', ' loading="lazy"')}
-</section>
-
-<section class="tile tile-parchment">
-  <h2>Request an appointment.</h2>
-  <form class="form" action="mailto:${BRAND.email}" method="get">
-    <div><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name"></div>
-    <div><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
-    <div><label for="f-city">City</label><input id="f-city" name="city" placeholder="Beverly Hills, Calabasas, Montecito&hellip;"></div>
-    <div><label for="f-appliance">Appliance</label>
-      <select id="f-appliance" name="appliance">
-        <option>Sub-Zero refrigerator or freezer</option>
-        <option>Sub-Zero wine storage</option>
-        <option>Wolf range or cooktop</option>
-        <option>Wolf wall oven</option>
-        <option>Multiple appliances</option>
-      </select>
-    </div>
-    <div><label for="f-issue">What is it doing?</label><textarea id="f-issue" name="issue" rows="4" placeholder="Not cooling since Tuesday, EC 50 on the display&hellip;"></textarea></div>
-    <button class="btn btn-primary btn-hero" type="submit">Request appointment</button>
-    <p class="hint">Submitting opens an email to our concierge desk. Or skip the form and just call <a href="tel:${BRAND.tel}">${BRAND.phone}</a>. Refrigeration emergencies always get same day priority. The ${BRAND.diagnostic} diagnostic is quoted before booking and credited toward any repair you approve.</p>
-  </form>
-</section>
-
-<section class="tile tile-white">
-  <h2>What happens next.</h2>
-  <ol class="step-list">
-    <li><div><h3>We confirm, quickly</h3><p>A scheduler calls back with an arrival window that fits your calendar, not the other way around.</p></div></li>
-    <li><div><h3>You know who is coming</h3><p>Name and photo of your tech before the truck arrives. Gate and staff coordination handled ahead of time.</p></div></li>
-    <li><div><h3>The visit</h3><p>A proper diagnosis with instruments, a written quote you approve first, and most of the time, the repair done the same day.</p></div></li>
-  </ol>
-</section>
-`
-+ ctaTile('Rather just talk to someone?', `${BRAND.phone}. ${BRAND.hours}.`)
-+ footer());
+page('book.html', `<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=contact.html"><link rel="canonical" href="${BRAND.domain}/contact"><title>Contact | ${BRAND.name}</title></head>
+<body><p>Moved: <a href="contact.html">Contact Noble</a> or call ${BRAND.phone}.</p></body></html>
+`);
 
 // ---------------------------------------------------------------------------
 // Sitemap
 // ---------------------------------------------------------------------------
-const urls = ['', 'about', 'cities', 'cities-we-serve', 'problems', 'contact', 'book',
+const urls = ['', 'about', 'cities', 'cities-we-serve', 'problems', 'contact',
   ...PROBLEMS.map(p => p.slug),
   ...CITIES.map(c => `sub-zero-repair-${c.slug}`)];
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>

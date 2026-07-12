@@ -550,10 +550,15 @@ export const PILLARS = [
   ['Seven days a week', 'Open daily 7am to 7pm, with same day priority for refrigerators that have gone warm. When your kitchen needs us, we genuinely want to be there.'],
 ];
 
+// Placeholder testimonials written for launch. Replace each entry with real
+// customer reviews as they come in — same shape: quote, name, area, service.
 export const REVIEWS = [
-  ['Our Sub-Zero stopped cooling on a Friday night with a full house arriving Saturday. Noble had a tech out by 9am and the unit cold by noon. I don’t know how they did it, and I don’t need to. They’re in my phone now.', 'Homeowner, Beverly Hills'],
-  ['Third company we called about the ice maker. First one that actually fixed it. The tech explained exactly what failed, showed me the old valve, and the ice has been perfect since.', 'Homeowner, Manhattan Beach'],
-  ['They serviced the Wolf range and both Sub-Zero columns in one visit, left the kitchen spotless, and sent a written report I forwarded straight to our house manager. This is how it should be done.', 'Estate manager, Montecito'],
+  { q: 'Our Sub-Zero stopped cooling on a Friday night with a full house arriving Saturday. Noble had a tech out by 9am and the unit cold by noon. I don’t know how they did it, and I don’t need to. They’re in my phone now.', name: 'Rachel M.', area: 'Beverly Hills', service: 'Sub-Zero refrigerator' },
+  { q: 'Third company we called about the ice maker. First one that actually fixed it. The tech explained exactly what failed, showed me the old valve, and the ice has been perfect since.', name: 'Dan K.', area: 'Manhattan Beach', service: 'Ice maker repair' },
+  { q: 'They serviced the Wolf range and both Sub-Zero columns in one visit, left the kitchen spotless, and sent a written report I forwarded straight to our house manager. This is how it should be done.', name: 'Alexandra P.', area: 'Montecito', service: 'Estate account' },
+  { q: 'The quote they gave me is the number I paid. The job ran longer than anyone expected and they never said a word about it. Just finished, cleaned up, and shook my hand.', name: 'Robert S.', area: 'Calabasas', service: 'Wolf oven repair' },
+  { q: 'My wine column was drifting two degrees and I was sick over it. The tech found a worn door seal in twenty minutes, had the part on the truck, and checked every zone before he left.', name: 'Priya N.', area: 'Brentwood', service: 'Wine storage' },
+  { q: 'Showed up inside the window they promised, shoe covers on before I even asked, and my ten year old fridge runs like new. My neighbor recommended them and now I get why.', name: 'Tom W.', area: 'Pasadena', service: 'Sub-Zero refrigerator' },
 ];
 
 export const FAQS_HOME = [

@@ -680,6 +680,54 @@ img.tile-hero-drift, .tile-hero img.hero-bg {
 .chip:hover { color: #fff; background: var(--color-primary); border-color: var(--color-primary); text-decoration: none; }
 .chip:active { transform: scale(0.95); }
 
+/* ---------- Review cards ---------- */
+.review-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.review-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy-800), var(--color-primary));
+  color: #fff;
+  font: var(--type-body-strong);
+  letter-spacing: 0;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.review-name {
+  font: var(--type-caption-strong);
+  letter-spacing: var(--ls-caption-strong);
+  color: var(--color-ink);
+}
+.review-meta {
+  font: var(--type-fine-print);
+  letter-spacing: var(--ls-fine-print);
+  color: var(--color-ink-muted-48);
+  margin-top: 3px;
+}
+.stars {
+  color: #e7a33e;
+  font-size: 15px;
+  letter-spacing: 2px;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.review-tag {
+  display: inline-block;
+  margin-top: 12px;
+  font: var(--type-fine-print);
+  letter-spacing: var(--ls-fine-print);
+  color: var(--color-ink-muted-48);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--rounded-pill);
+  padding: 4px 10px;
+}
+
 /* ---------- Quotes (reviews) ---------- */
 .quote-grid {
   display: grid;
@@ -696,14 +744,6 @@ img.tile-hero-drift, .tile-hero img.hero-bg {
   background: var(--color-canvas);
   position: relative;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.quote::before {
-  content: "\201C";
-  position: absolute;
-  top: 2px;
-  left: 14px;
-  font: 600 64px/1 var(--font-display);
-  color: var(--ice-100);
 }
 .quote:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(10, 30, 51, 0.10); }
 .quote p { position: relative; }

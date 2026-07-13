@@ -25,31 +25,16 @@ const logoImg = (cls = 'brand-logo') => existsSync(join(OUT, 'assets', 'media', 
   ? `<img class="${cls}" src="assets/media/logo.png" alt="${BRAND.name}">`
   : '';
 
-// Responsive background video for a photo hero. Expects <base>.mp4 and/or
-// <base>-mobile.mp4 with matching -poster jpgs in assets/media. When only
-// the mobile clip exists, desktop removes the video and keeps a plain hero.
-const heroVideo = base => {
-  const hasDesktop = existsSync(join(OUT, 'assets', 'media', `${base}.mp4`));
-  const hasMobile = existsSync(join(OUT, 'assets', 'media', `${base}-mobile.mp4`));
-  if (!hasDesktop && !hasMobile) return '';
-  const poster = hasDesktop ? `${base}-poster.jpg` : `${base}-poster-mobile.jpg`;
-  return `<video class="hero-bg" autoplay muted loop playsinline preload="auto" poster="assets/media/${poster}"></video>
-  <script>(function () {
-    var sc = document.currentScript;
-    var v = sc.previousElementSibling;
-    var mobile = window.matchMedia && window.matchMedia('(max-width: 833px)').matches;
-    var hasDesktop = ${hasDesktop};
-    if (mobile && ${hasMobile}) {
-      v.poster = 'assets/media/${base}-poster-mobile.jpg';
-      v.src = 'assets/media/${base}-mobile.mp4';
-    } else if (hasDesktop) {
-      v.src = 'assets/media/${base}.mp4';
-    } else {
-      var scrim = sc.nextElementSibling;
-      v.remove();
-      if (scrim && scrim.className === 'hero-scrim') scrim.remove();
-    }
-  })();</script>
+// Responsive still background for a photo hero. Expects <base>-poster.jpg
+// (desktop) and/or <base>-poster-mobile.jpg in assets/media.
+const heroImage = base => {
+  const desktop = existsSync(join(OUT, 'assets', 'media', `${base}-poster.jpg`)) ? `assets/media/${base}-poster.jpg` : null;
+  const mobile = existsSync(join(OUT, 'assets', 'media', `${base}-poster-mobile.jpg`)) ? `assets/media/${base}-poster-mobile.jpg` : null;
+  if (!desktop && !mobile) return '';
+  return `<picture>
+    ${mobile ? `<source media="(max-width: 833px)" srcset="${mobile}">` : ''}
+    <img class="hero-bg" src="${desktop || mobile}" alt="">
+  </picture>
   <div class="hero-scrim"></div>`;
 };
 
@@ -239,8 +224,7 @@ page('index.html', head(
 + nav('Noble')
 + `
 <section class="tile tile-hero">
-  ${heroVideo('hero') || (media('subzero-fridge-07-hamptons-coastal') ? `<img class="hero-bg" src="${media('subzero-fridge-07-hamptons-coastal')}" alt="">
-  <div class="hero-scrim"></div>` : '')}
+  ${heroImage('hero')}
   <div class="hero-content">
     <p class="eyebrow">Sub-Zero &amp; Wolf specialists &middot; Los Angeles &middot; ${BRAND.hours}</p>
     <h1>Your Sub-Zero, <span class="accent-cold">cold again</span>. <br>Often the same day you call.</h1>
@@ -421,7 +405,7 @@ page('problems.html', head(
 + nav('Problems we fix')
 + `
 <section class="tile tile-hero">
-  ${heroVideo('problems')}
+  ${heroImage('problems')}
   <div class="hero-content">
     <p class="eyebrow">Problems we fix</p>
     <h1>If it is Sub-Zero or Wolf, <br>we have repaired it.</h1>
@@ -735,7 +719,7 @@ page('contact.html', head(
 + nav('Contact')
 + `
 <section class="tile tile-hero">
-  ${heroVideo('contact')}
+  ${heroImage('contact')}
   <div class="hero-content">
     <p class="eyebrow">Contact</p>
     <h1>One call, and it is handled.</h1>

@@ -104,23 +104,10 @@
 </nav>
 
 <section class="tile tile-hero">
-  <video class="hero-bg" autoplay muted loop playsinline preload="auto" poster="assets/media/hero-poster.jpg"></video>
-  <script>(function () {
-    var sc = document.currentScript;
-    var v = sc.previousElementSibling;
-    var mobile = window.matchMedia && window.matchMedia('(max-width: 833px)').matches;
-    var hasDesktop = true;
-    if (mobile && true) {
-      v.poster = 'assets/media/hero-poster-mobile.jpg';
-      v.src = 'assets/media/hero-mobile.mp4';
-    } else if (hasDesktop) {
-      v.src = 'assets/media/hero.mp4';
-    } else {
-      var scrim = sc.nextElementSibling;
-      v.remove();
-      if (scrim && scrim.className === 'hero-scrim') scrim.remove();
-    }
-  })();</script>
+  <picture>
+    <source media="(max-width: 833px)" srcset="assets/media/hero-poster-mobile.jpg">
+    <img class="hero-bg" src="assets/media/hero-poster.jpg" alt="">
+  </picture>
   <div class="hero-scrim"></div>
   <div class="hero-content">
     <p class="eyebrow">Sub-Zero &amp; Wolf specialists &middot; Los Angeles &middot; Open daily, 7am to 7pm</p>

@@ -281,7 +281,7 @@ img.tile-hero-drift, .tile-hero img.hero-bg {
   position: absolute;
   inset: -56px -90px;
   z-index: -1;
-  background: radial-gradient(ellipse 62% 58% at 50% 46%, rgba(248, 251, 255, 0.85) 0%, rgba(248, 251, 255, 0.55) 55%, rgba(248, 251, 255, 0) 78%);
+  background: radial-gradient(ellipse 66% 62% at 50% 46%, rgba(248, 251, 255, 0.94) 0%, rgba(248, 251, 255, 0.72) 58%, rgba(248, 251, 255, 0) 84%);
   pointer-events: none;
 }
 /* White halo keeps ink type readable directly over the moving video */
@@ -303,9 +303,10 @@ img.tile-hero-drift, .tile-hero img.hero-bg {
 .tile-hero .btn-ghost {
   background: rgba(255, 255, 255, 0.85);
 }
-.tile-hero .muted { color: var(--color-ink-muted-80); }
-.tile-hero .lead-airy.muted { color: var(--color-ink-muted-48); }
-.tile-hero .eyebrow { color: var(--color-primary); }
+.tile-hero .muted { color: var(--color-ink); }
+.tile-hero .lead { font-weight: 400; }
+.tile-hero .lead-airy.muted { color: var(--color-ink); }
+.tile-hero .eyebrow { color: var(--color-primary); font-weight: 700; }
 @media (prefers-reduced-motion: reduce) {
   .tile-hero .hero-bg { animation: none; }
 }

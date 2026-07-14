@@ -228,7 +228,8 @@ page('index.html', head(
   <div class="hero-content">
     <p class="eyebrow">Sub-Zero &amp; Wolf specialists &middot; Los Angeles &middot; ${BRAND.hours}</p>
     <h1>Your Sub-Zero, <span class="accent-cold">cold again</span>. <br>Often the same day you call.</h1>
-    <p class="lead muted">Factory trained specialists, ${BRAND.years} years deep in Sub-Zero and Wolf, and still glad to take the call. Genuine parts on the truck, a ${BRAND.warrantyYears} year guarantee in writing, and an ${BRAND.diagnostic} diagnostic that comes off your repair.</p>
+    <p class="lead muted">Factory trained specialists, still glad to take the call.</p>
+    <p class="hero-facts">${BRAND.years} years deep in Sub-Zero and Wolf &middot; Genuine parts on the truck &middot; ${BRAND.warrantyYears} year written guarantee &middot; ${BRAND.diagnostic} diagnostic, credited</p>
     <div class="ctas">
       <a class="btn btn-primary btn-hero" href="tel:${BRAND.tel}">Call ${BRAND.phone}</a>
     </div>
@@ -284,7 +285,7 @@ page('index.html', head(
     <a class="btn btn-primary" href="problems.html#sub-zero">What we fix</a>
     <a class="btn btn-ghost-dark" href="tel:${BRAND.tel}">Call now</a>
   </div>
-  ${mediaImg('subzero-fridge-02-panel-oak-columns', 'Panel ready Sub-Zero columns in oak cabinetry', 'city-hero ph-shadow', ' style="max-width: 720px; height: 420px; border-radius: 8px;"')}
+  ${mediaImg('subzero-fridge-08-pro48-dusk-glass', 'Sub-Zero glass door refrigerator at dusk', 'city-hero ph-shadow', ' style="max-width: 720px; height: 420px; border-radius: 8px;"')}
 </section>
 
 <section class="tile tile-ember">
